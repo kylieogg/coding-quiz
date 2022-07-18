@@ -18,6 +18,13 @@ body{
     margin: 0;
 }
 
+.timer {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
 .quiz-container{
     background-color: #fff;
     border-radius: 10px;
