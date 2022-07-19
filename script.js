@@ -133,7 +133,7 @@ function getSelected() {
             answer = answerEl.id
         }
     })
-    return answer
+    return answer;
 }
 
 submitBtn.addEventListener('click', () => {
