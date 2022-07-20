@@ -1,12 +1,12 @@
 /* ALL questions, answer choices, and correct answers included in quiz */
-const quizData = [
+var quizData = [
     {
         question: "Commonly used data types DO NOT include:",
          choices:["strings",
          "booleans",
          "alerts",
          "numbers"],
-        correct: "c",
+        correct: "c"
     },
     {
         question: "The condition in an if/else statesment is enclosed with __________.",
@@ -14,7 +14,7 @@ const quizData = [
          "curly brackets",
          "parenthesis",
          "square brackets"],
-        correct: "b",
+        correct: "b"
     },
     {
         question: "Arrays in JavaScript can be used to store _______________.",
@@ -22,7 +22,7 @@ const quizData = [
          "other arrays",
          "booleans",
          "all of the above"],
-        correct: "d",
+        correct: "d"
     },
     {
         question: "String values must be enclosed within ____________ when being assigned to variables.",
@@ -30,7 +30,7 @@ const quizData = [
          "curly brackets",
          "quotes",
          "parenthesis"],
-        correct: "c",
+        correct: "c"
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -38,7 +38,7 @@ const quizData = [
          "terminal/bash",
          "for loops",
          "console.log"],
-        correct: "d",
+        correct: "d"
     }
     
 ];
@@ -49,16 +49,16 @@ var timeId;
 
 /* Variables for questions and answers */
 // var quiz= document.getElementById('quiz')
-var questionEl= document.getElementById('questions')
-var startBtn= document.getElementById('startBtn')
-var choicesEl= document.getElementById('choices')
-var timeLeft= document.getElementById('time-left')
+var questionEl= document.getElementById("questions");
+var startBtn= document.getElementById("startBtn");
+var choicesEl= document.getElementById("choices");
+var timeLeft= document.getElementById("time-left");
 
 /* Variables for possible answers */
 
 
-let currentQuiz = 0
-let score = 0
+let currentQuiz = 0;
+let score = 0;
 
 /*startQuiz();
 
@@ -87,7 +87,7 @@ function getCurrentQuestion() {
     // Clears previous choices
     choicesEl.innerHTML = "";
 
-    // 
+     
     currentQuestion.choices.forEach(function(choice, i){
         var choiceButton = document.createElement('button');
         choiceButton.setAttribute('class', 'choice');
@@ -95,7 +95,7 @@ function getCurrentQuestion() {
 
         choiceButton.textContent = i + 1 + "." + choice;
 
-        choiceButton.onClick = userChoice;
+        choiceButton.onclick = questionCheck;
 
         choicesEl.appendChild(choiceButton);
     });
@@ -133,8 +133,5 @@ function startTimer(){
         console.log("game over");
     }
 }
-//     const currentQuizData= quizData[currentQuiz]
     
-
-startBtn.onclick(console.log('clicked'));
 startBtn.onclick = startQuiz;
