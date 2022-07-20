@@ -48,7 +48,7 @@ var timer= 75;
 var timeId;
 
 /* Variables for questions and answers */
-var quiz= document.getElementById('quiz')
+// var quiz= document.getElementById('quiz')
 var questionEl= document.getElementById('questions')
 var startBtn= document.getElementById('startBtn')
 var choicesEl= document.getElementById('choices')
@@ -57,13 +57,10 @@ var timeLeft= document.getElementById('time-left')
 /* Variables for possible answers */
 
 
-/* Variable for submit button */
-const submitBtn= document.getElementById('submit')
-
 let currentQuiz = 0
 let score = 0
 
-startQuiz();
+/*startQuiz();
 
 /* Function to call quiz to load questions */
 function startQuiz(){
@@ -104,6 +101,30 @@ function getCurrentQuestion() {
     });
 }
 
+function questionCheck() {
+    if (this.value !== quizData[currentQuestionIndex].correct){
+        timer -= 15;
+
+        if (timer < 0) {
+            timer = 0;
+        }
+    }
+
+    currentQuestionIndex++
+
+    if (currentQuestionIndex=== quizData.length) {
+        gameOver();
+    } else {
+        getCurrentQuestion();
+    }
+}
+
+function gameOver() {
+    clearInterval(timerId);
+
+    questionEl.setAttribute('class', 'hidden')
+}
+
 function startTimer(){
     timer--;
     timeLeft.textContent = timer;
@@ -114,47 +135,6 @@ function startTimer(){
 }
 //     const currentQuizData= quizData[currentQuiz]
     
-//     questionEl.innerText = currentQuizData.question
-//     a_text.innerText = currentQuizData.a
-//     b_text.innerText = currentQuizData.b
-//     c_text.innerText = currentQuizData.c
-//     d_text.innerText = currentQuizData.d
 
-// }
-
-function deselectAnswers() {
-    answerEls.forEach(answerEl => answerEl.checked = false)
-}
-
-function getSelected() {
-    let answer
-    answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
-            answer = answerEl.id
-        }
-    })
-    return answer;
-}
-
-submitBtn.addEventListener('click', () => {
-    const answer = getSelected()
-    if (answer) {
-        if (answer === quizData[currentQuiz].correct) {
-            score++
-        }
-
-        currentQuiz++
-
-        if(currentQuiz < quizData.length) {
-            loadQuiz()
-        } else {
-            quiz.innerHTML = `
-            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-
-            <button onclick="location.reload()">Reload</button>
-            `
-        }
-    }
-})
-
-startBtn.onClick = startQuiz;
+startBtn.onclick(console.log('clicked'));
+startBtn.onclick = startQuiz;
